@@ -1,14 +1,7 @@
 import { View, StyleSheet } from "react-native";
-import ProfileCard from "./components/ProfileCard";
-import SmartSwitch from "./components/SmartSwitch";
-import HiddenImage from "./components/HiddenImage";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <ProfileCard />
-    </View>
-  );
+  return <View style={styles.container}></View>;
 }
 
 const styles = StyleSheet.create({
