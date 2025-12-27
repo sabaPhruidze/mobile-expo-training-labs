@@ -1,11 +1,14 @@
-import { View, Text } from "react-native";
-import React from "react";
-
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import First from "./components/First";
+const Stack = createNativeStackNavigator();
 const Main = () => {
   return (
-    <View>
-      <Text>Main</Text>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="First" component={First} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
