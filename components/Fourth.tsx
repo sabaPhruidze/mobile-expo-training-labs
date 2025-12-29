@@ -15,9 +15,6 @@ export const hobbiesData = [
   { id: 10, title: "Chess" },
   { id: 11, title: "Watching movies" },
   { id: 12, title: "Gaming" },
-  { id: 13, title: "Gardening" },
-  { id: 14, title: "Swimming" },
-  { id: 15, title: "Blogging" },
 ] as const;
 
 type Props = NativeStackScreenProps<RootStackParamList, "Fourth">;
@@ -34,12 +31,14 @@ const Fourth = ({ navigation }: Props) => {
           </View>
         )}
       />
-      <Pressable
-        onPress={() => navigation.navigate("Fifth")}
-        style={[styles.btn, styles.center, { marginTop: 20 }]}
-      >
-        <Text>Move on next project</Text>
-      </Pressable>
+      <View style={styles.center}>
+        <Pressable
+          onPress={() => navigation.navigate("Fifth")}
+          style={[styles.btn, styles.center, { marginTop: 20 }]}
+        >
+          <Text style={styles.text}>Move on next project</Text>
+        </Pressable>
+      </View>
     </View>
   );
 };
@@ -59,10 +58,10 @@ const styles = StyleSheet.create({
     color: "#ffffffff",
   },
   btn: {
-    width: 150,
-    height: 40,
+    width: 200,
+    height: 50,
     borderRadius: 60,
-    backgroundColor: "#ffffffff",
+    backgroundColor: "#000000ff",
   },
   center: {
     justifyContent: "center",

@@ -5,12 +5,14 @@ import Second from "./components/Second";
 import Third from "./components/Third";
 import Fourth from "./components/Fourth";
 import Fifth from "./components/Fifth";
+import Sixth from "./components/Sixth";
 export type RootStackParamList = {
   First: undefined;
   Second: undefined;
   Third: undefined;
   Fourth: undefined;
   Fifth: undefined;
+  Sixth: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -24,6 +26,7 @@ const Main = () => {
         <Stack.Screen name="Third" component={Third} />
         <Stack.Screen name="Fourth" component={Fourth} />
         <Stack.Screen name="Fifth" component={Fifth} />
+        <Stack.Screen name="Sixth" component={Sixth} />
       </Stack.Navigator>
     </NavigationContainer>
   );
