@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 import { RootStackParamList } from "../Main";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
@@ -7,9 +7,32 @@ type Props = NativeStackScreenProps<RootStackParamList, "Nine">;
 const Nine = ({ navigation }: Props) => {
   return (
     <View>
-      <Text>Nine</Text>
+      <View style={styles.box}>
+        <View style={styles.circle}></View>
+      </View>
     </View>
   );
 };
 
 export default Nine;
+
+const styles = StyleSheet.create({
+  box: {
+    width: 50,
+    height: 50,
+    backgroundColor: "#998f8fff",
+    position: "relative",
+    marginTop: 50,
+    zIndex: 1,
+  },
+  circle: {
+    width: 15,
+    height: 15,
+    position: "absolute",
+    backgroundColor: "red",
+    borderRadius: 7.5,
+    top: -5,
+    right: -5,
+    zIndex: 2,
+  },
+});
