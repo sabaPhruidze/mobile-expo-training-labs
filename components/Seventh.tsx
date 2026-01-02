@@ -90,6 +90,12 @@ const Seventh = ({ navigation }: Props) => {
         horizontal
         showsHorizontalScrollIndicator={false}
       />
+      <Pressable
+        onPress={() => navigation.navigate("Eight")}
+        style={[styles.btn, styles.center, { marginTop: 20 }]}
+      >
+        <Text style={styles.text}>Move on next project</Text>
+      </Pressable>
       <FlatList
         data={DATAList}
         keyExtractor={(item: Data) => item.id}
@@ -132,5 +138,19 @@ const styles = StyleSheet.create({
   },
   modalImage: {
     flex: 1,
+  },
+  btn: {
+    width: 200,
+    height: 50,
+    borderRadius: 60,
+    backgroundColor: "#000000ff",
+    marginBottom: 20,
+  },
+  center: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  text: {
+    color: "#ffffffff",
   },
 });
