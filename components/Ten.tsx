@@ -1,4 +1,11 @@
-import { View, Text, StyleSheet, Pressable } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Pressable,
+  ActivityIndicator,
+  FlatList,
+} from "react-native";
 import React, { useState, useEffect } from "react";
 import { RootStackParamList } from "../Main";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
@@ -24,14 +31,22 @@ const Ten = ({ navigation }: Props) => {
   useEffect(() => {
     receiveData();
   }, []);
+  if (isLoading) return <ActivityIndicator size="large" color="green" />;
   return (
-    <View>
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <Pressable
         onPress={() => navigation.navigate("Eight")}
         style={[styles.btn, styles.center, { marginTop: 20 }]}
       >
         <Text style={styles.text}>Move to next project</Text>
       </Pressable>
+      <FlatList
+        data={todos}
+        keyExtractor={(item) => item.title}
+        renderItem={({ item }) => {
+          return <Text style={{ textAlign: "center" }}>{item.title}</Text>;
+        }}
+      />
     </View>
   );
 };
