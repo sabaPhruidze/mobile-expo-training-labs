@@ -34,7 +34,14 @@ const Ten = ({ navigation }: Props) => {
   }, []);
   if (isLoading) return <ActivityIndicator size="large" color="green" />;
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        paddingTop: 50,
+      }}
+    >
       <Pressable
         onPress={() => navigation.navigate("Eleven")}
         style={[styles.btn, styles.center, { marginTop: 20 }]}

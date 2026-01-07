@@ -32,6 +32,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 const Main = () => {
   return (
     <NavigationContainer>
+      {/* if I want to remove all headers I can add attribute on Stack.Navigator screenOptions={{headerShown:false}} */}
       <Stack.Navigator>
         <Stack.Screen name="First" component={First} />
         <Stack.Screen name="Second" component={Second} />
@@ -42,8 +43,20 @@ const Main = () => {
         <Stack.Screen name="Seventh" component={Seventh} />
         <Stack.Screen name="Eight" component={Eight} />
         <Stack.Screen name="Nine" component={Nine} />
-        <Stack.Screen name="Ten" component={Ten} />
-        <Stack.Screen name="Eleven" component={Eleven} />
+        <Stack.Screen
+          name="Ten"
+          component={Ten}
+          options={{ headerShown: false }} // I removed the header on ten in order to test how it works
+        />
+        <Stack.Screen
+          name="Eleven"
+          component={Eleven}
+          options={{
+            title: "11 test",
+            headerStyle: { backgroundColor: "green" }, //background color , which consists statusbar as well
+            headerTintColor: "white", //text color
+          }}
+        />
         <Stack.Screen name="Twelve" component={Twelve} />
       </Stack.Navigator>
     </NavigationContainer>
