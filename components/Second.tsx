@@ -19,7 +19,7 @@ const Second = ({ navigation }: Props) => {
         thumbColor={"#ffffff"}
       />
       <Pressable
-        onPress={() => navigation.navigate("Tabs", { screen: "First" })}
+        onPress={() => navigation.navigate("Third")}
         style={styles.btn}
       >
         <Text style={styles.btnText}>Next Project</Text>

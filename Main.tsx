@@ -32,17 +32,16 @@ const Main = () => {
     <NavigationContainer>
       {/* if I want to remove all headers I can add attribute on Stack.Navigator screenOptions={{headerShown:false}} */}
       <Stack.Navigator>
-        <Stack.Screen name="Second" component={Second} />
         <Stack.Screen
           name="Tabs"
           component={TabNavigator}
           options={{ headerShown: false }}
         />
+        <Stack.Screen name="Second" component={Second} />
         <Stack.Screen name="Third" component={Third} />
         <Stack.Screen name="Fourth" component={Fourth} />
         <Stack.Screen name="Fifth" component={Fifth} />
         <Stack.Screen name="Sixth" component={Sixth} />
-
         <Stack.Screen name="Eight" component={Eight} />
         <Stack.Screen name="Nine" component={Nine} />
         <Stack.Screen
