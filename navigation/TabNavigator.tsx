@@ -1,12 +1,13 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 
-import Seventh from "../components/Seventh";
-import Twelve from "../components/Twelve";
-
+import First from "../components/First";
+import Second from "../components/Second";
+import Third from "../components/Third";
 export type TabParamList = {
-  Seventh: undefined;
-  Twelve: undefined;
+  First: undefined;
+  Second: undefined;
+  Third: undefined;
 };
 const Tab = createBottomTabNavigator<TabParamList>();
 const TabNavigator = () => {
@@ -18,8 +19,8 @@ const TabNavigator = () => {
       }}
     >
       <Tab.Screen
-        name="Seventh"
-        component={Seventh}
+        name="First"
+        component={First}
         options={{
           tabBarLabel: "List",
           tabBarIcon: ({ color, size }) => (
@@ -28,8 +29,21 @@ const TabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="Twelve"
-        component={Twelve}
+        name="Second"
+        component={Second}
+        options={{
+          title: "switch",
+          headerStyle: { backgroundColor: "yellow" },
+          headerTintColor: "black",
+          tabBarLabel: "Switch",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="basketball" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Third"
+        component={Third}
         options={{
           tabBarLabel: "Settings",
           tabBarIcon: ({ size, color }) => (

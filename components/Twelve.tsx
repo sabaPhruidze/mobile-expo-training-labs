@@ -1,17 +1,9 @@
 import { View, Text, Pressable, StyleSheet } from "react-native";
 import React from "react";
-
-import { CompositeScreenProps } from "@react-navigation/native";
-import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-
-import { TabParamList } from "../navigation/TabNavigator";
 import { RootStackParamList } from "../Main";
 
-type Props = CompositeScreenProps<
-  BottomTabScreenProps<TabParamList, "Twelve">,
-  NativeStackScreenProps<RootStackParamList>
->;
+type Props = NativeStackScreenProps<RootStackParamList, "Twelve">;
 
 const Twelve = ({ navigation }: Props) => {
   return (

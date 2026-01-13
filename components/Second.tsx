@@ -1,10 +1,17 @@
 import { View, Text, Switch, StyleSheet, Pressable } from "react-native";
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { RootStackParamList } from "../Main";
+import { CompositeScreenProps } from "@react-navigation/native";
+import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
-type Props = NativeStackScreenProps<RootStackParamList, "Second">;
+import { TabParamList } from "../navigation/TabNavigator";
+import { RootStackParamList } from "../Main";
+
+type Props = CompositeScreenProps<
+  BottomTabScreenProps<TabParamList, "Second">,
+  NativeStackScreenProps<RootStackParamList>
+>;
 const Second = ({ navigation }: Props) => {
   const [toggle, setToggle] = useState<boolean>(false);
   return (
@@ -19,7 +26,7 @@ const Second = ({ navigation }: Props) => {
         thumbColor={"#ffffff"}
       />
       <Pressable
-        onPress={() => navigation.navigate("Third")}
+        onPress={() => navigation.navigate("Tabs", { screen: "Third" })}
         style={styles.btn}
       >
         <Text style={styles.btnText}>Next Project</Text>

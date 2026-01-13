@@ -1,9 +1,16 @@
 import { View, Text, StyleSheet, Image, Pressable } from "react-native";
 import React from "react";
+import { CompositeScreenProps } from "@react-navigation/native";
+import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
+
+import { TabParamList } from "../navigation/TabNavigator";
 import { RootStackParamList } from "../Main";
 
-type Props = NativeStackScreenProps<RootStackParamList, "First">;
+type Props = CompositeScreenProps<
+  BottomTabScreenProps<TabParamList, "First">,
+  NativeStackScreenProps<RootStackParamList>
+>;
 
 const First = ({ navigation }: Props) => {
   return (
@@ -19,7 +26,7 @@ const First = ({ navigation }: Props) => {
       <Text style={styles.position}>React Native Developer</Text>
       <Pressable
         style={styles.btn}
-        onPress={() => navigation.navigate("Second")}
+        onPress={() => navigation.navigate("Tabs", { screen: "Second" })}
       >
         <Text style={styles.btnText}>Next step</Text>
       </Pressable>

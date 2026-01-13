@@ -8,10 +8,17 @@ import {
   View,
 } from "react-native";
 import React, { useState } from "react";
-import { RootStackParamList } from "../Main";
+import { CompositeScreenProps } from "@react-navigation/native";
+import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
-type Props = NativeStackScreenProps<RootStackParamList, "Third">;
+import { TabParamList } from "../navigation/TabNavigator";
+import { RootStackParamList } from "../Main";
+
+type Props = CompositeScreenProps<
+  BottomTabScreenProps<TabParamList, "Third">,
+  NativeStackScreenProps<RootStackParamList>
+>;
 const Third = ({ navigation }: Props) => {
   const [toggle, setToggle] = useState<boolean>(false);
   const toggleOn = () => setToggle(true);
