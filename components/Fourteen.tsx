@@ -9,7 +9,7 @@ const Fourteen = ({ navigation }: Props) => {
   return (
     <View>
       <Pressable
-        style={styles.btn}
+        className="w-100 h-40 bg-white b-8 mt-15 flex justify-center items-center"
         onPress={() => navigation.navigate("Fifteen")}
       >
         <Text style={styles.btnText}>Next step</Text>
