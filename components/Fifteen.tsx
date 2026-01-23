@@ -1,4 +1,4 @@
-import { View, Text,Pressable } from "react-native";
+import {  Text,Pressable } from "react-native";
 import React,{useEffect} from "react";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../Main";
@@ -33,7 +33,7 @@ const Fifteen = ({ navigation }: Props) => {
   return (
     <SafeAreaView className="flex-1">
       <Text>Fifteen</Text>
-      <Pressable onPress={scheduleNotificationAsync}>
+      <Pressable onPress={scheduleNotificationAsync}className="w-10 h-10 bg-green-300">
         <Text>Ring the bell</Text>
       </Pressable>
       <Pressable
