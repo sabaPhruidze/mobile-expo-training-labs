@@ -7,7 +7,6 @@ import { RootStackParamList } from "../Main";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Fifteen">;
 
-// ✅ ეს უნდა იყოს აქ, კომპონენტის გარეთ (ერთჯერადად)
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
     shouldShowAlert: true,
