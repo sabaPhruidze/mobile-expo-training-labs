@@ -43,32 +43,32 @@ export default function Fifteen({ navigation }: Props) {
     initLocalNotifications();
   }, []);
   // immediate notification since trigger is null
-  async function sendLocalNotification() {
-    try {
-      await Notifications.scheduleNotificationAsync({
-        content: {
-          title: "Hi 👋",
-          body: "This is a local notification have a nice day",
-          sound: true,
-        },
-        trigger: null, // immediatelly
-      });
-    } catch (e) {
-      console.log("sendLocalNotification error:", e);
-      Alert.alert("Error", "Notification ვერ გაიგზავნა");
-    }
-  }
+  // async function sendLocalNotification() {
+  //   try {
+  //     await Notifications.scheduleNotificationAsync({
+  //       content: {
+  //         title: "Hi 👋",
+  //         body: "This is a local notification have a nice day",
+  //         sound: true,
+  //       },
+  //       trigger: null, // immediatelly
+  //     });
+  //   } catch (e) {
+  //     console.log("sendLocalNotification error:", e);
+  //     Alert.alert("Error", "Notification ვერ გაიგზავნა");
+  //   }
+  // }
 
   return (
     <SafeAreaView className="flex-1 items-center justify-center bg-green-500">
       <Text className="text-lg m-5">Local Notification Test</Text>
 
-      <Pressable
+      {/* <Pressable
         onPress={sendLocalNotification}
         className="w-56 h-14 bg-green-800 items-center justify-center rounded-xl"
       >
         <Text className="text-white text-lg font-bold  ">Ring the bell</Text>
-      </Pressable>
+      </Pressable> */}
       <Pressable
         className="mt-10 w-[200px] h-[50px] bg-black flex justify-center rounded-xl items-center"
         onPress={() => navigation.navigate("Sixteen")}
