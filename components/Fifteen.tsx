@@ -45,14 +45,16 @@ export default function Fifteen({ navigation }: Props) {
   //  immediate notification since trigger is null
   const sendLocalNotification = async () => {
     try {
-      await Notifications.scheduleNotificationAsync({
-        content: {
-          title: "Hi 👋",
-          body: "This is a local notification have a nice day",
-          sound: true,
-        },
-        trigger: null,
-      });
+      setTimeout(async () => {
+        await Notifications.scheduleNotificationAsync({
+          content: {
+            title: "Hi 👋",
+            body: "This is a local notification have a nice day",
+            sound: true,
+          },
+          trigger: null,
+        });
+      }, 1000);
     } catch (error) {
       console.log("sendLocalNotification error:", error);
       Alert.alert("Error", "Notification wasn't send");
