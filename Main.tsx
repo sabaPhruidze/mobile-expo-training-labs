@@ -32,8 +32,8 @@ export type RootStackParamList = {
   Thirteen: undefined;
   Fourteen: undefined;
   Fifteen: undefined;
-  Sixteen:undefined;
-  SevenTeen:undefined;
+  Sixteen: undefined;
+  SevenTeen: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -42,7 +42,7 @@ const Main = () => {
   return (
     <NavigationContainer>
       {/* if I want to remove all headers I can add attribute on Stack.Navigator screenOptions={{headerShown:false}} */}
-      <Stack.Navigator initialRouteName="Tabs">
+      <Stack.Navigator initialRouteName="Fifteen">
         <Stack.Screen
           name="Tabs"
           component={TabNavigator}
@@ -73,8 +73,8 @@ const Main = () => {
         <Stack.Screen name="Thirteen" component={Thirteen} />
         <Stack.Screen name="Fourteen" component={Fourteen} />
         <Stack.Screen name="Fifteen" component={Fifteen} />
-         <Stack.Screen name="Sixteen" component={Sixteen} />
-        <Stack.Screen name="SevenTeen" component={SevenTeen}/>
+        <Stack.Screen name="Sixteen" component={Sixteen} />
+        <Stack.Screen name="SevenTeen" component={SevenTeen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

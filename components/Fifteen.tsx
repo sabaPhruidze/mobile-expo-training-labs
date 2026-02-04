@@ -39,17 +39,42 @@ export default function Fifteen({ navigation }: Props) {
       Alert.alert("Error", "Notifications init error");
     }
   };
+  const scheduleTime = async () => {
+    //it will be calculate by local time using your phone time
+    const now = new Date();
+    const target = new Date(now);
+    target.setHours(12, 1, 0, 0);
+    //if 11:46, already been it will be moved tomorrow
+    if (target <= now) {
+      target.setDate(target.getDate() + 1);
+    }
+    await Notifications.scheduleNotificationAsync({
+      content: {
+        title: "reminder",
+        body: "It is 11:55",
+        sound: true,
+      },
+      trigger: { date: target } as Notifications.NotificationTriggerInput,
+    });
+  };
   useEffect(() => {
-    initLocalNotifications();
+    const run = async () => {
+      await initLocalNotifications();
+      await Notifications.cancelAllScheduledNotificationsAsync();
+      await scheduleTime();
+    };
+
+    run();
   }, []);
+
   //  immediate notification since trigger is null
   const sendLocalNotification = async () => {
     try {
       setTimeout(async () => {
         await Notifications.scheduleNotificationAsync({
           content: {
-            title: "Hi 👋",
-            body: "This is a local notification have a nice day",
+            title: "reminder",
+            body: "It is 11:52",
             sound: true,
           },
           trigger: null,
@@ -64,7 +89,12 @@ export default function Fifteen({ navigation }: Props) {
   return (
     <SafeAreaView className="flex-1 items-center justify-center bg-green-500">
       <Text className="text-lg m-5">Local Notification Test</Text>
-
+      <Pressable
+        onPress={scheduleTime}
+        className="mt-5 w-56 h-14 bg-blue-900 items-center justify-center rounded-xl mb-10"
+      >
+        <Text className="text-white text-lg font-bold">Schedule 11:52</Text>
+      </Pressable>
       <Pressable
         onPress={sendLocalNotification}
         className="w-56 h-14 bg-green-900 items-center justify-center rounded-xl"
