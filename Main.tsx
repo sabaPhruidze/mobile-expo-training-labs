@@ -4,6 +4,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigatorScreenParams } from "@react-navigation/native";
 import TabNavigator, { TabParamList } from "./navigation/TabNavigator";
 
+import * as Linking from "expo-linking";
+
 import Fourth from "./components/Fourth";
 import Fifth from "./components/Fifth";
 import Sixth from "./components/Sixth";
@@ -37,10 +39,19 @@ export type RootStackParamList = {
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
+const linking = {
+  prefixes: [Linking.createURL("/")],
+  config: {
+    screens: {
+      Fifth: "Fifth",
+      SevenTeen: "SevenTeen",
+    },
+  },
+};
 
 const Main = () => {
   return (
-    <NavigationContainer>
+    <NavigationContainer linking={linking}>
       {/* if I want to remove all headers I can add attribute on Stack.Navigator screenOptions={{headerShown:false}} */}
       <Stack.Navigator initialRouteName="Sixteen">
         <Stack.Screen
