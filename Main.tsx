@@ -44,7 +44,7 @@ const linking = {
   config: {
     screens: {
       Fifth: "fifth",
-      SevenTeen: "seventeen",
+      Sixteen: "user/:id",
     },
   },
 };
