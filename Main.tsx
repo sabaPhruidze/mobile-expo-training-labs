@@ -48,8 +48,8 @@ const linking: LinkingOptions<RootStackParamList> = {
       Sixteen: "user/:id",
       Tabs: {
         screens: {
-          ProfileCardScreen: "home",
-          Second: "settings",
+          ProfileCardScreen: "profile-card",
+          SmartBulbScreen: "smart-bulb",
         },
       },
     },
@@ -67,7 +67,6 @@ const Main = () => {
           headerStyle: { backgroundColor: "#000" },
           headerTintColor: "#fff",
           headerTitleStyle: { color: "#fff" },
-
           contentStyle: { backgroundColor: "#000" }, // ეკრანების “base” background
         }}
       >

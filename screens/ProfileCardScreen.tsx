@@ -34,7 +34,9 @@ const ProfileCardScreen = ({ navigation }: Props) => {
         <Text style={styles.position}>React Native Developer</Text>
         <Pressable
           style={styles.btn}
-          onPress={() => navigation.navigate("Tabs", { screen: "Second" })}
+          onPress={() =>
+            navigation.navigate("Tabs", { screen: "SmartBulbScreen" })
+          }
         >
           <Text style={styles.btnText}>Next step</Text>
         </Pressable>

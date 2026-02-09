@@ -9,10 +9,10 @@ import { TabParamList } from "../navigation/TabNavigator";
 import { RootStackParamList } from "../Main";
 
 type Props = CompositeScreenProps<
-  BottomTabScreenProps<TabParamList, "Second">,
+  BottomTabScreenProps<TabParamList, "SmartBulbScreen">,
   NativeStackScreenProps<RootStackParamList>
 >;
-const Second = ({ navigation }: Props) => {
+const SmartBulbScreen = ({ navigation }: Props) => {
   const [toggle, setToggle] = useState<boolean>(false);
   return (
     <SafeAreaView style={styles.container}>
@@ -35,7 +35,7 @@ const Second = ({ navigation }: Props) => {
   );
 };
 
-export default Second;
+export default SmartBulbScreen;
 
 const styles = StyleSheet.create({
   container: {
