@@ -8,7 +8,7 @@ import { TabParamList } from "../navigation/TabNavigator";
 import { RootStackParamList } from "../Main";
 
 type Props = CompositeScreenProps<
-  BottomTabScreenProps<TabParamList, "First">,
+  BottomTabScreenProps<TabParamList, "ProfileCardScreen">,
   NativeStackScreenProps<RootStackParamList>
 >;
 
@@ -19,7 +19,7 @@ const ProfileCardScreen = ({ navigation }: Props) => {
         source={{
           uri: "https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?semt=ais_hybrid&w=740&q=80",
         }}
-        alt="It is an user icon with white and blue colors.In the center is a person's icon in white colors, outside it has blue and than white circle"
+        accessibilityLabel="User Avatar"
         style={styles.icon}
       />
       <Text style={styles.name}>Saba Phruidze</Text>

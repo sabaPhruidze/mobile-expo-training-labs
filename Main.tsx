@@ -47,7 +47,7 @@ const linking: LinkingOptions<RootStackParamList> = {
       Sixteen: "user/:id",
       Tabs: {
         screens: {
-          First: "home",
+          ProfileCardScreen: "home",
           Second: "settings",
         },
       },

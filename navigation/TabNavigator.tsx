@@ -1,11 +1,11 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 
-import First from "../components/ProfileCardScreen";
+import ProfileCardScreen from "../screens/ProfileCardScreen";
 import Second from "../components/Second";
 import Third from "../components/Third";
 export type TabParamList = {
-  First: undefined;
+  ProfileCardScreen: undefined;
   Second: undefined;
   Third: undefined;
 };
@@ -19,10 +19,10 @@ const TabNavigator = () => {
       }}
     >
       <Tab.Screen
-        name="First"
-        component={First}
+        name="ProfileCardScreen"
+        component={ProfileCardScreen}
         options={{
-          tabBarLabel: "Home",
+          tabBarLabel: "Profile Card",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="home" size={size} color={color} />
           ),
