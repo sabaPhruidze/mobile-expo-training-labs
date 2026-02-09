@@ -5,6 +5,7 @@ import { NavigatorScreenParams } from "@react-navigation/native";
 import TabNavigator, { TabParamList } from "./navigation/TabNavigator";
 import { LinkingOptions } from "@react-navigation/native";
 import * as Linking from "expo-linking";
+import { StatusBar } from "expo-status-bar";
 
 import Fourth from "./components/Fourth";
 import Fifth from "./components/Fifth";
@@ -58,8 +59,18 @@ const linking: LinkingOptions<RootStackParamList> = {
 const Main = () => {
   return (
     <NavigationContainer linking={linking}>
+      <StatusBar style="light" />
       {/* if I want to remove all headers I can add attribute on Stack.Navigator screenOptions={{headerShown:false}} */}
-      <Stack.Navigator initialRouteName="Tabs">
+      <Stack.Navigator
+        initialRouteName="Tabs"
+        screenOptions={{
+          headerStyle: { backgroundColor: "#000" },
+          headerTintColor: "#fff",
+          headerTitleStyle: { color: "#fff" },
+
+          contentStyle: { backgroundColor: "#000" }, // ეკრანების “base” background
+        }}
+      >
         <Stack.Screen
           name="Tabs"
           component={TabNavigator}
