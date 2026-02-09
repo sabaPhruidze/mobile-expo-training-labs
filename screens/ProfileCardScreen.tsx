@@ -1,4 +1,11 @@
-import { View, Text, StyleSheet, Image, Pressable } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  Pressable,
+  Platform,
+} from "react-native";
 import React from "react";
 import { CompositeScreenProps } from "@react-navigation/native";
 import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
@@ -15,21 +22,23 @@ type Props = CompositeScreenProps<
 const ProfileCardScreen = ({ navigation }: Props) => {
   return (
     <View style={styles.container}>
-      <Image
-        source={{
-          uri: "https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?semt=ais_hybrid&w=740&q=80",
-        }}
-        accessibilityLabel="User Avatar"
-        style={styles.icon}
-      />
-      <Text style={styles.name}>Saba Phruidze</Text>
-      <Text style={styles.position}>React Native Developer</Text>
-      <Pressable
-        style={styles.btn}
-        onPress={() => navigation.navigate("Tabs", { screen: "Second" })}
-      >
-        <Text style={styles.btnText}>Next step</Text>
-      </Pressable>
+      <View style={styles.card}>
+        <Image
+          source={{
+            uri: "https://i.pinimg.com/736x/ac/10/6d/ac106d0c9bb817e54df3409615832313.jpg",
+          }}
+          accessibilityLabel="User Avatar"
+          style={styles.icon}
+        />
+        <Text style={styles.name}>Saba Phruidze</Text>
+        <Text style={styles.position}>React Native Developer</Text>
+        <Pressable
+          style={styles.btn}
+          onPress={() => navigation.navigate("Tabs", { screen: "Second" })}
+        >
+          <Text style={styles.btnText}>Next step</Text>
+        </Pressable>
+      </View>
     </View>
   );
 };
@@ -41,7 +50,30 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#a0903eff",
+    backgroundColor: "#0B1220",
+    padding: 16,
+  },
+  card: {
+    width: "100%",
+    maxWidth: 360,
+    paddingVertical: 26,
+    paddingHorizontal: 20,
+    borderRadius: 24,
+    backgroundColor: "rgba(255,255,255,0.1)",
+    borderWidth: 1,
+    borderColor: "rgba(255,255,255,0.2)",
+    alignItems: "center",
+    ...Platform.select({
+      ios: {
+        shadowColor: "#000",
+        shadowOpacity: 0.3,
+        shadowOffset: { width: 0, height: 10 },
+        shadowRadius: 18,
+      },
+      android: {
+        elevation: 10,
+      },
+    }),
   },
   icon: {
     width: 150,
