@@ -2,7 +2,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 
 import ProfileCardScreen from "../screens/ProfileCardScreen";
-import SmartBulbScreen from "../components/SmartBulbScreen";
+import SmartBulbScreen from "../screens/SmartBulbScreen";
 import Third from "../components/Third";
 export type TabParamList = {
   ProfileCardScreen: undefined;
@@ -36,8 +36,7 @@ const TabNavigator = () => {
         component={SmartBulbScreen}
         options={{
           title: "Smart bulb",
-          headerStyle: { backgroundColor: "yellow" },
-          headerTintColor: "black",
+          headerStyle: { backgroundColor: "#1F2A44" },
           tabBarLabel: "Smart bulb",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="bulb" size={size} color={color} />

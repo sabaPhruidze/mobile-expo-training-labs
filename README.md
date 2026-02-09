@@ -76,13 +76,9 @@ Loading indicator
 
 Keyboard avoiding on forms
 
-Profile Card (UI)
+1. Profile Card (UI): View, Image, Text, Pressable, StyleSheet, Platform.select (shadow/elevation), React Navigation (navigate)
 
-View container + Image avatar + Text info + Follow button
-
-Smart Bulb (State & Conditional UI)
-
-Switch toggles Dark/Light mode + optional image change
+2. Smart Bulb (State & Conditional UI): SafeAreaView, View, Text, Switch, Pressable, useState, StyleSheet, Platform.select (shadow/elevation), Conditional styles (toggle on/off), React Navigation (navigate)
 
 Secret Image (Modal & ImageBackground)
 
