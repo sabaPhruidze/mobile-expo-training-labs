@@ -21,6 +21,9 @@ import Fourteen from "./components/Fourteen";
 import Fifteen from "./components/Fifteen";
 import Sixteen from "./components/Sixteen";
 import SevenTeen from "./components/SevenTeen";
+
+import RegisterScreen from "./screens/auth/RegisterScreen";
+
 export type RootStackParamList = {
   Tabs: NavigatorScreenParams<TabParamList>;
   Fourth: undefined;
@@ -37,6 +40,7 @@ export type RootStackParamList = {
   Fifteen: undefined;
   Sixteen: { id?: string };
   SevenTeen: undefined;
+  RegisterScreen: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -62,7 +66,7 @@ const Main = () => {
       <StatusBar style="light" />
       {/* if I want to remove all headers I can add attribute on Stack.Navigator screenOptions={{headerShown:false}} */}
       <Stack.Navigator
-        initialRouteName="Tabs"
+        initialRouteName="RegisterScreen"
         screenOptions={{
           headerStyle: { backgroundColor: "#000" },
           headerTintColor: "#fff",
@@ -102,6 +106,7 @@ const Main = () => {
         <Stack.Screen name="Fifteen" component={Fifteen} />
         <Stack.Screen name="Sixteen" component={Sixteen} />
         <Stack.Screen name="SevenTeen" component={SevenTeen} />
+        <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
