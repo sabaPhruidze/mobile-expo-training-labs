@@ -22,7 +22,7 @@ import Fifteen from "./components/Fifteen";
 import Sixteen from "./components/Sixteen";
 import SevenTeen from "./components/SevenTeen";
 
-import RegisterScreen from "./screens/auth/RegisterScreen";
+import RegisterScreen from "./screens/RegisterScreen";
 
 export type RootStackParamList = {
   Tabs: NavigatorScreenParams<TabParamList>;
@@ -74,6 +74,7 @@ const Main = () => {
           contentStyle: { backgroundColor: "#000" }, // ეკრანების “base” background
         }}
       >
+        <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
         <Stack.Screen
           name="Tabs"
           component={TabNavigator}
@@ -106,7 +107,6 @@ const Main = () => {
         <Stack.Screen name="Fifteen" component={Fifteen} />
         <Stack.Screen name="Sixteen" component={Sixteen} />
         <Stack.Screen name="SevenTeen" component={SevenTeen} />
-        <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
