@@ -2,9 +2,9 @@ import * as z from "zod";
 
 export const registerSchema = z
   .object({
-    fullName: z.string().min(3, "სახელი უნდა იყოს მინიმუმ 3 სიმბოლო"),
-    email: z.email("არასწორი მეილის ფორმატი"),
-    password: z.string().min(6, "პაროლი უნდა იყოს მინიმუმ 6 სიმბოლო"),
+    fullName: z.string().min(3, "Name must contain at least 3 symbol"),
+    email: z.email("Wrong email format"),
+    password: z.string().min(6, "Password must be at least 6 symbol"),
     confirmPassword: z.string().min(6, "Repeat password"),
   })
   .refine((data) => data.password === data.confirmPassword, {

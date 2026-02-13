@@ -33,7 +33,7 @@ const RegisterScreen = () => {
   });
 
   const onSubmit = async (data: RegisterSchema) => {
-    console.log("ფორმის მონაცემები:", data);
+    console.log("Format data", data);
   };
 
   return (
@@ -71,7 +71,11 @@ const RegisterScreen = () => {
                 />
               )}
             />
-            {!!errors.fullName && <Text>{errors.fullName.message}</Text>}
+            {!!errors.fullName && (
+              <Text className="mt-2 text-xs font-semibold text-red-400">
+                {errors.fullName.message}
+              </Text>
+            )}
 
             {/* email */}
 
@@ -94,7 +98,11 @@ const RegisterScreen = () => {
                 />
               )}
             />
-            {!!errors.email && <Text>{errors.email.message}</Text>}
+            {!!errors.email && (
+              <Text className="mt-2 text-xs font-semibold text-red-400">
+                {errors.email.message}
+              </Text>
+            )}
             {/* password */}
             <Text className="mt-4 mb-2 text-sm font-bold text-slate-200">
               Password
@@ -116,7 +124,11 @@ const RegisterScreen = () => {
                 />
               )}
             />
-            {!!errors.password && <Text>{errors.password.message}</Text>}
+            {!!errors.password && (
+              <Text className="mt-2 text-xs font-semibold text-red-400">
+                {errors.password.message}
+              </Text>
+            )}
             {/* confirmming password */}
             <Text className="mt-4 mb-2 text-sm font-bold text-slate-200">
               Confirm password
@@ -141,7 +153,9 @@ const RegisterScreen = () => {
               )}
             />
             {!!errors.confirmPassword && (
-              <Text>{errors.confirmPassword.message}</Text>
+              <Text className="mt-2 text-xs font-semibold text-red-400">
+                {errors.confirmPassword.message}
+              </Text>
             )}
             <Pressable
               className={`mt-6 h-12 rounded-2xl items-center justify-center ${isSubmitting ? "bg-slate-600" : "bg-white"}`}
