@@ -22,7 +22,7 @@ import Fifteen from "./components/Fifteen";
 import Sixteen from "./components/Sixteen";
 import SevenTeen from "./components/SevenTeen";
 
-import RegisterScreen from "./screens/RegisterScreen";
+import RegisterScreen from "./screens/auth/RegisterScreen";
 
 export type RootStackParamList = {
   Tabs: NavigatorScreenParams<TabParamList>;
