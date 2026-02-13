@@ -71,6 +71,29 @@ const RegisterScreen = () => {
               )}
             />
             {!!errors.fullName && <Text>{errors.fullName.message}</Text>}
+
+            {/* email */}
+
+            <Text className="mt-4 mb-2 text-sm font-bold text-slate-200">
+              Email
+            </Text>
+            <Controller
+              control={control}
+              name="email"
+              render={({ field: { onChange, onBlur, value } }) => (
+                <TextInput
+                  className={`h-12 rounded-2xl border px-6 text-white ${errors.email ? "border-red-500" : "border-slate-700"} bg-slate-800`}
+                  placeholder="Ex: Denise1@gmail.com"
+                  placeholderTextColor="#94a3b8"
+                  keyboardType="email-address"
+                  autoCapitalize="none"
+                  onBlur={onBlur}
+                  onChangeText={onChange}
+                  value={value}
+                />
+              )}
+            />
+            {!!errors.email && <Text>{errors.email.message}</Text>}
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
