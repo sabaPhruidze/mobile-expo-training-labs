@@ -5,6 +5,7 @@ import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
+  Pressable,
 } from "react-native";
 import React from "react";
 import { useForm, Controller } from "react-hook-form";
@@ -142,6 +143,17 @@ const RegisterScreen = () => {
             {!!errors.confirmPassword && (
               <Text>{errors.confirmPassword.message}</Text>
             )}
+            <Pressable
+              className={`mt-6 h-12 rounded-2xl items-center justify-center ${isSubmitting ? "bg-slate-600" : "bg-white"}`}
+              disabled={isSubmitting}
+              onPress={handleSubmit(onSubmit)}
+            >
+              <Text
+                className={`text-base font-extrabold ${isSubmitting ? "text-slate-200" : "text-slate-950"}`}
+              >
+                {isSubmitting ? "Loading..." : "Submit"}
+              </Text>
+            </Pressable>
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
