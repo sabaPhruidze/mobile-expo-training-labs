@@ -94,6 +94,54 @@ const RegisterScreen = () => {
               )}
             />
             {!!errors.email && <Text>{errors.email.message}</Text>}
+            {/* password */}
+            <Text className="mt-4 mb-2 text-sm font-bold text-slate-200">
+              Password
+            </Text>
+            <Controller
+              control={control}
+              name="password"
+              render={({ field: { onBlur, onChange, value } }) => (
+                <TextInput
+                  className={`h-12 rounded-2xl border px-4 text-white ${
+                    errors.password ? "border-red-500" : "border-slate-700"
+                  } bg-slate-800`}
+                  placeholder="******"
+                  placeholderTextColor="#94a3b8"
+                  secureTextEntry
+                  onBlur={onBlur}
+                  value={value}
+                  onChangeText={onChange}
+                />
+              )}
+            />
+            {!!errors.password && <Text>{errors.password.message}</Text>}
+            {/* confirmming password */}
+            <Text className="mt-4 mb-2 text-sm font-bold text-slate-200">
+              Confirm password
+            </Text>
+            <Controller
+              control={control}
+              name="confirmPassword"
+              render={({ field: { onChange, onBlur, value } }) => (
+                <TextInput
+                  className={`h-12 rounded-2xl border px-4 text-white ${
+                    errors.confirmPassword
+                      ? "border-red-500"
+                      : "border-slate-700"
+                  } bg-slate-800`}
+                  placeholder="******"
+                  placeholderTextColor="#94a3b8"
+                  secureTextEntry
+                  onBlur={onBlur}
+                  value={value}
+                  onChangeText={onChange}
+                />
+              )}
+            />
+            {!!errors.confirmPassword && (
+              <Text>{errors.confirmPassword.message}</Text>
+            )}
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
