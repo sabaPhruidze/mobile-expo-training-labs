@@ -1,6 +1,6 @@
 import * as z from "zod";
 
-export const loginSchema = z
+export const registerSchema = z
   .object({
     fullName: z.string().min(3, "სახელი უნდა იყოს მინიმუმ 3 სიმბოლო"),
     email: z.email("არასწორი მეილის ფორმატი"),
@@ -12,4 +12,4 @@ export const loginSchema = z
     path: ["confirmPassword"],
   });
 
-export type LoginSchema = z.infer<typeof loginSchema>;
+export type RegisterSchema = z.infer<typeof registerSchema>;
