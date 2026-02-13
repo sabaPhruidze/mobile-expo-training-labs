@@ -39,9 +39,9 @@ const RegisterScreen = () => {
   return (
     <SafeAreaView className="flex-1">
       <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : "padding"}
+        behavior="padding"
         className="flex-1"
-        keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 80}
+        keyboardVerticalOffset={80}
       >
         <ScrollView
           contentContainerStyle={{ padding: 16 }}
