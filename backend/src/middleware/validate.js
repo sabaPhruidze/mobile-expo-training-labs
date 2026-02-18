@@ -10,3 +10,4 @@ const validate = (schema) => (req, res, next) => {
   req.validated = result.data;
   next();
 };
+module.exports = validate;
