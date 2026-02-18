@@ -10,6 +10,7 @@ export const registerSchema = z
   .refine((data) => data.password === data.confirmPassword, {
     message: "Passwords does not match",
     path: ["confirmPassword"],
-  });
+  })
+  .strict();
 
 module.exports = { registerSchema };
