@@ -1,6 +1,6 @@
 const { z } = require("zod");
 
-export const registerSchema = z
+const registerSchema = z
   .object({
     fullName: z.string().min(3, "Name must contain at least 3 symbol"),
     email: z.email("Wrong email format"),

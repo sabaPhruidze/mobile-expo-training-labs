@@ -9,12 +9,12 @@ const findUserByEmail = async (email) => {
   );
   return rows[0] || null;
 };
-const createUser = async ({ fullName, email, passwordHash }) => {
+const createUser = async ({ fullName, email, password_hash }) => {
   const { rows } = await pool.query(
     `INSERT INTO users(full_name,email,password_hash)
          VALUES ($1,$2,$3)
          RETURNING id,full_name,email,created_at`,
-    [fullName, email, passwordHash], //fullname $1, email $2 , passwordHash $3
+    [fullName, email, password_hash], //fullname $1, email $2 , passwordHash $3
   );
   return rows[0];
 };

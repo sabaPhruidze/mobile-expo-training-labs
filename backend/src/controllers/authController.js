@@ -15,7 +15,10 @@ const register = async (req, res) => {
     });
     return res.status(201).json({ message: "Registered", user, token });
   } catch (error) {
-    return res.status(500).json({ message: "Server error" });
+    console.error("REGISTER ERROR:", error);
+    return res
+      .status(500)
+      .json({ message: "Server error", error: error.message });
   }
 };
 module.exports = { register };
