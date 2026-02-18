@@ -1,18 +1,18 @@
 require("dotenv").config();
 const express = require("express");
+const cors = require("cors");
+
+const authRoutes = require("./routes/authRoutes");
+
 const app = express();
-const pool = require("./config/db");
 const port = process.env.PORT;
 
-app.get("/healt", async (req, res) => {
-  try {
-    const result = await pool.query("SELECT 1 as ok");
-    res.json({ status: "ok", db: result.rows[0] });
-  } catch (error) {
-    res.status(500).json({ status: "fail", error: error.message });
-  }
-});
+app.use(cors());
+app.use(express.json());
+
+app.get("/health", (req, res) => res.json({ status: "ok" }));
+app.use("/auth", authRoutes);
 
 app.listen(port, () => {
-  console.log(`Move on this link : http://localhost:${port}/healt`);
+  console.log(`Move on this link : http://localhost:${port}`);
 });
