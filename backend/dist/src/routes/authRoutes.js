@@ -1,7 +1,12 @@
-const express = require("express");
-const router = express.Router();
-const validate = require("../middleware/validate");
-const { registerSchema } = require("../validation/authSchemas");
-const { register } = require("../controllers/authController");
-router.post("/register", validate(registerSchema), register);
-module.exports = router;
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const validate_1 = __importDefault(require("../middleware/validate"));
+const authSchemas_1 = require("../validation/authSchemas");
+const authController_1 = require("../controllers/authController");
+const router = (0, express_1.Router)();
+router.post("/register", (0, validate_1.default)(authSchemas_1.registerSchema), authController_1.register);
+exports.default = router;

@@ -1,4 +1,4 @@
-const { z } = require("zod");
+import { z } from "zod";
 
 const registerSchema = z
   .object({
@@ -12,5 +12,5 @@ const registerSchema = z
     path: ["confirmPassword"],
   })
   .strict();
-
-module.exports = { registerSchema };
+export type RegisterSchema = z.infer<typeof registerSchema>;
+export default registerSchema;
