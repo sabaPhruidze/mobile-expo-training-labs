@@ -1,3 +1,8 @@
+import "dotenv/config";
+import express, { Request, Response } from "express";
+import cors from "cors";
+
+import authRoutes from "./routes/authRoutes";
 process.on("uncaughtException", (err: unknown) => {
   const message = err instanceof Error ? err.message : String(err);
   (console.log("critical error,system must be shut down"), message);
@@ -6,13 +11,8 @@ process.on("uncaughtException", (err: unknown) => {
 process.on("unhandledRejection", (err: unknown) => {
   const message = err instanceof Error ? err.message : String(err);
   console.log("unhandled promise rejection", message);
-  process.exit(1); //fe
+  process.exit(1);
 });
-require("dotenv").config();
-const express = require("express");
-const cors = require("cors");
-
-const authRoutes = require("./routes/authRoutes");
 
 const app = express();
 const port = process.env.PORT;
