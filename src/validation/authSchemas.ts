@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-const registerSchema = z
+export const registerSchema = z
   .object({
     fullName: z.string().min(3, "Name must contain at least 3 symbol"),
     email: z.email("Wrong email format"),
@@ -13,4 +13,11 @@ const registerSchema = z
   })
   .strict();
 export type RegisterSchema = z.infer<typeof registerSchema>;
-export default registerSchema;
+
+export const loginSchema = z
+  .object({
+    email: z.email("Wrong email format"),
+    password: z.string().min(6, "Password must be at least 6 symbol"),
+  })
+  .strict();
+export type LoginSchema = z.infer<typeof loginSchema>;
