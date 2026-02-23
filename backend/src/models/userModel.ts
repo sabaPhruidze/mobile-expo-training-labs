@@ -42,3 +42,16 @@ export const createUser = async (params: {
   );
   return rows[0];
 };
+export const findUserById = async (
+  id: number,
+): Promise<DbUserPublic | null> => {
+  const { rows } = await pool.query<DbUserPublic>(
+    `SELECT id, full_name, email
+    FROM users
+    WHERE id =$1
+    LIMIT 1
+    `,
+    [id],
+  );
+  return rows[0] ?? null;
+};

@@ -1,6 +1,6 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import { findUserByEmail, createUser } from "../models/userModel";
+import { findUserByEmail, findUserById, createUser } from "../models/userModel";
 import type { LoginSchema, RegisterSchema } from "../validation/authSchemas";
 
 import type { Request, Response } from "express";
@@ -21,13 +21,11 @@ export const register = async (req: Request, res: Response) => {
         expiresIn: "7d",
       },
     );
-    return res
-      .status(201)
-      .json({
-        message: "Registered",
-        user: { id: user.id, full_name: user.full_name, email: user.email },
-        token,
-      });
+    return res.status(201).json({
+      message: "Registered",
+      user: { id: user.id, full_name: user.full_name, email: user.email },
+      token,
+    });
   } catch (error: any) {
     console.error("REGISTER ERROR:", error);
     return res
@@ -58,5 +56,20 @@ export const login = async (req: Request, res: Response) => {
   } catch (error) {
     console.error("Login error", error);
     return res.status(500).json({ message: "Server error" });
+  }
+};
+export const me = async (req: Request, res: Response) => {
+  try {
+    const userId = (req as any).userId as number;
+    const user = await findUserById(userId);
+    if (!user) return res.status(404).json({ message: "User not found" });
+    return res.status(200).json({
+      user: { id: user.id, full_name: user.full_name, email: user.email },
+    });
+  } catch (error) {
+    console.log("Me Error", error);
+    return res
+      .status(500)
+      .json({ message: "Server error", error: error?.message });
   }
 };
