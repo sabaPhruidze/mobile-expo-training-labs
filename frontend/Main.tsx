@@ -66,7 +66,7 @@ const Main = () => {
       <StatusBar style="light" />
       {/* if I want to remove all headers I can add attribute on Stack.Navigator screenOptions={{headerShown:false}} */}
       <Stack.Navigator
-        initialRouteName="RegisterScreen"
+        initialRouteName="Tabs"
         screenOptions={{
           headerStyle: { backgroundColor: "#000" },
           headerTintColor: "#fff",

@@ -1,5 +1,7 @@
-const { Pool } = require("pg");
-const pool = new Pool({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const pg_1 = require("pg");
+const pool = new pg_1.Pool({
     connectionString: process.env.DATABASE_URL,
 });
-module.exports = pool;
+exports.default = pool;
