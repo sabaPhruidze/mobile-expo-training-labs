@@ -1,5 +1,5 @@
 import type { Request, Response, NextFunction } from "express";
-import { jwt } from "jsonwebtoken";
+import * as jsonwebtoken from "jsonwebtoken";
 
 const authGuard = (req: Request, res: Response, next: NextFunction) => {
   const header = req.headers.authorization;
@@ -8,11 +8,16 @@ const authGuard = (req: Request, res: Response, next: NextFunction) => {
   }
   const token = header.split(" ")[1];
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET as string) as {
+    const decoded = jsonwebtoken.verify(
+      token,
+      process.env.JWT_SECRET as string,
+    ) as {
       userId: number;
     };
     (req as any).userId = decoded.userId;
+    return next();
   } catch (error) {
     return res.status(401).json({ message: "Unauthorized:invalid token" });
   }
 };
+export default authGuard;
