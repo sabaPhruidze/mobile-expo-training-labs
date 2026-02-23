@@ -3,8 +3,9 @@
 # dependencies
 node_modules/
 
-# Expo
+# Expo (local state + builds)
 .expo/
+.expo-shared/
 dist/
 web-build/
 expo-env.d.ts
@@ -33,7 +34,7 @@ yarn-error.*
 # local env files
 .env*.local
 
-# typescript
+# TypeScript
 *.tsbuildinfo
 
 # generated native folders

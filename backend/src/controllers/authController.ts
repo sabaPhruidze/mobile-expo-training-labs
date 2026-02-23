@@ -39,7 +39,7 @@ export const login = async (req: Request, res: Response) => {
     const { email, password } = (req as any).validated as LoginSchema;
 
     const user = await findUserByEmail(email);
-    if (!user) return res.status(401).json({ message: "loginSchema " });
+    if (!user) return res.status(401).json({ message: "Invalid credentials " });
 
     const ok = await bcrypt.compare(password, user.password_hash);
     if (!ok) return res.status(401).json({ message: "Invalid credentials" });
