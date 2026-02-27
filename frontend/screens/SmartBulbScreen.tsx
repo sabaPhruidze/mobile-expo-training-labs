@@ -46,7 +46,9 @@ const SmartBulbScreen = ({ navigation }: Props) => {
           </View>
         </View>
         <Pressable
-          onPress={() => navigation.navigate("Tabs", { screen: "Third" })}
+          onPress={() =>
+            navigation.navigate("Tabs", { screen: "SecretBackDropScreen" })
+          }
           style={styles.btn}
         >
           <Text style={styles.btnText}>Next Project</Text>
