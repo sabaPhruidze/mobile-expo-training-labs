@@ -79,8 +79,8 @@ Keyboard avoiding on forms
 1. Profile Card (UI): View, Image, Text, Pressable, StyleSheet, Platform.select (shadow/elevation), React Navigation (navigate)
 
 2. Smart Bulb (State & Conditional UI): SafeAreaView, View, Text, Switch, Pressable, useState, StyleSheet, Platform.select (shadow/elevation), Conditional styles (toggle on/off), React Navigation (navigate)
-
-Secret Image (Modal & ImageBackground)
+3. Secret Image (Modal & ImageBackground): I set a nature photo as an ImageBackground and placed a centered Pressable button labeled "See details". On press, I use useState to control showing/hiding a Modal. Inside the modal, I display the text "This is a secret information" and a close button (Pressable + Image exit icon) that hides the modal when pressed. I replaced StyleSheet styles with NativeWind (className).
+   Secret Image (Modal & ImageBackground)
 
 Background image + “See details” opens Modal + close action
 
