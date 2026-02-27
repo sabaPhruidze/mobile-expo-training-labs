@@ -3,11 +3,11 @@ import { Ionicons } from "@expo/vector-icons";
 
 import ProfileCardScreen from "../screens/ProfileCardScreen";
 import SmartBulbScreen from "../screens/SmartBulbScreen";
-import Third from "../components/Third";
+import SecretBackDropScreen from "../screens/SecretBackDropScreen";
 export type TabParamList = {
   ProfileCardScreen: undefined;
   SmartBulbScreen: undefined;
-  Third: undefined;
+  SecretBackDropScreen: undefined;
 };
 const Tab = createBottomTabNavigator<TabParamList>();
 const TabNavigator = () => {
@@ -44,8 +44,8 @@ const TabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="Third"
-        component={Third}
+        name="SecretBackDropScreen"
+        component={SecretBackDropScreen}
         options={{
           tabBarLabel: "Profile",
           tabBarIcon: ({ size, color }) => (
