@@ -1,9 +1,11 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "skipLibCheck": true,
-    "jsx": "react-native",
     "strict": true
   },
-  "include": ["**/*.ts", "**/*.tsx", "**/*.d.ts", "nativewind-env.d.ts"]
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "nativewind-env.d.ts"
+  ]
 }
