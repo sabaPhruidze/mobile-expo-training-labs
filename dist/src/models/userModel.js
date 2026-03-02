@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createUser = exports.findUserByEmail = void 0;
+exports.findUserById = exports.createUser = exports.findUserByEmail = void 0;
 const db_1 = __importDefault(require("../config/db"));
 const findUserByEmail = async (email) => {
     const { rows } = await db_1.default.query(`SELECT 
@@ -24,3 +24,12 @@ const createUser = async (params) => {
     return rows[0];
 };
 exports.createUser = createUser;
+const findUserById = async (id) => {
+    const { rows } = await db_1.default.query(`SELECT id, full_name, email
+    FROM users
+    WHERE id =$1
+    LIMIT 1
+    `, [id]);
+    return rows[0] ?? null;
+};
+exports.findUserById = findUserById;
