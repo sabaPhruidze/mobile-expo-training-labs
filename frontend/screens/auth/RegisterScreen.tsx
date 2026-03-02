@@ -11,6 +11,7 @@ import React from "react";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { registerRequest } from "../../api/auth";
 import {
   type RegisterSchema,
   registerSchema,
@@ -33,7 +34,12 @@ const RegisterScreen = () => {
   });
 
   const onSubmit = async (data: RegisterSchema) => {
-    console.log("Format data", data);
+    try {
+      const requestBody = await registerRequest(data);
+      console.log("register went succesfully:", requestBody.token);
+    } catch (error: any) {
+      console.log("register error", error?.response?.data || error.message);
+    }
   };
 
   return (
