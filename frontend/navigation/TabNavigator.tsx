@@ -47,9 +47,13 @@ const TabNavigator = () => {
         name="SecretBackDropScreen"
         component={SecretBackDropScreen}
         options={{
-          tabBarLabel: "Profile",
+          tabBarLabel: "Secret modal",
           tabBarIcon: ({ size, color }) => (
-            <Ionicons name="football" size={size} color={color} />
+            <Ionicons
+              name="information-circle-outline"
+              size={size}
+              color={color}
+            />
           ),
         }}
       />
