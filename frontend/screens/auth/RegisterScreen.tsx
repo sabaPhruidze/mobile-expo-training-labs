@@ -15,12 +15,15 @@ import {
   type RegisterSchema,
   registerSchema,
 } from "../../features/auth/schema";
-
-const RegisterScreen = () => {
+import type { NativeStackScreenProps } from "@react-navigation/native-stack";
+import type { RootStackParamList } from "../../Main";
+type Props = NativeStackScreenProps<RootStackParamList, "RegisterScreen">;
+const RegisterScreen = ({ navigation }: Props) => {
   const {
     control,
     handleSubmit,
     formState: { errors, isSubmitting },
+    reset,
   } = useForm<RegisterSchema>({
     resolver: zodResolver(registerSchema),
     defaultValues: {
@@ -36,6 +39,8 @@ const RegisterScreen = () => {
     try {
       const requestBody = await registerRequest(data);
       console.log("register went succesfully:", requestBody.token);
+      reset();
+      navigation.navigate("Tabs", { screen: "SmartBulbScreen" });
     } catch (error: any) {
       console.log("register error", error?.response?.data || error.message);
     }
