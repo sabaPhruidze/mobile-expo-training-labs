@@ -6,6 +6,6 @@ export type AuthResponse = {
 };
 export const registerRequest = async (payload: RegisterSchema) => {
   // post method
-  const res = await api.post<AuthResponse>("./auth/register", payload);
+  const res = await api.post<AuthResponse>("/auth/register", payload);
   return res.data; //returns {token}
 };

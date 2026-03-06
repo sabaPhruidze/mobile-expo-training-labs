@@ -3,7 +3,6 @@ import {
   Text,
   TextInput,
   KeyboardAvoidingView,
-  Platform,
   ScrollView,
   Pressable,
 } from "react-native";
