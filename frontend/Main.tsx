@@ -23,6 +23,7 @@ import Sixteen from "./components/Sixteen";
 import SevenTeen from "./components/SevenTeen";
 
 import RegisterScreen from "./screens/auth/RegisterScreen";
+import LoginScreen from "./screens/auth/LoginScreen";
 
 export type RootStackParamList = {
   Tabs: NavigatorScreenParams<TabParamList>;
@@ -41,6 +42,7 @@ export type RootStackParamList = {
   Sixteen: { id?: string };
   SevenTeen: undefined;
   RegisterScreen: undefined;
+  LoginScreen: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -50,10 +52,13 @@ const linking: LinkingOptions<RootStackParamList> = {
     screens: {
       Fifth: "fifth",
       Sixteen: "user/:id",
+      RegisterScreen: "register",
+      LoginScreen: "login",
       Tabs: {
         screens: {
           ProfileCardScreen: "profile-card",
           SmartBulbScreen: "smart-bulb",
+          SecretBackDropScreen: "secret-back-drop",
         },
       },
     },
@@ -66,7 +71,7 @@ const Main = () => {
       <StatusBar style="light" />
       {/* if I want to remove all headers I can add attribute on Stack.Navigator screenOptions={{headerShown:false}} */}
       <Stack.Navigator
-        initialRouteName="RegisterScreen"
+        initialRouteName="LoginScreen"
         screenOptions={{
           headerStyle: { backgroundColor: "#000" },
           headerTintColor: "#fff",
@@ -74,6 +79,7 @@ const Main = () => {
           contentStyle: { backgroundColor: "#000" }, // ეკრანების “base” background
         }}
       >
+        <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
         <Stack.Screen
           name="Tabs"
