@@ -40,7 +40,7 @@ const RegisterScreen = ({ navigation }: Props) => {
       const requestBody = await registerRequest(data);
       console.log("register went succesfully:", requestBody.token);
       reset();
-      navigation.navigate("Tabs", { screen: "SmartBulbScreen" });
+      navigation.navigate("Tabs", { screen: "ProfileCardScreen" });
     } catch (error: any) {
       console.log("register error", error?.response?.data || error.message);
     }
