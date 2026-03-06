@@ -1,11 +1,26 @@
-import { View, Text } from "react-native";
+import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import React from "react";
 
 const LoginScreen = () => {
   return (
-    <View>
-      <Text>LoginScreen</Text>
-    </View>
+    <SafeAreaView>
+      <View>
+        <Text>Welcome Back</Text>
+        <Text>Sign in to continue</Text>
+        <Text>Email</Text>
+        <TextInput
+          placeholder="Enter your email"
+          keyboardType="email-address"
+          autoCapitalize="none"
+        />
+        <Text>Password</Text>
+        <TextInput placeholder="Enter your password" secureTextEntry />
+        <TouchableOpacity>
+          <Text>Login</Text>
+        </TouchableOpacity>
+      </View>
+    </SafeAreaView>
   );
 };
 
