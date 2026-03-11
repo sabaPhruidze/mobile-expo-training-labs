@@ -7,6 +7,7 @@ import { Controller, useForm } from "react-hook-form";
 import { loginSchema, type LoginSchema } from "../../features/auth/schema";
 import { loginRequest } from "../../api/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
 type Props = NativeStackScreenProps<RootStackParamList, "LoginScreen">;
 const LoginScreen = ({ navigation }: Props) => {
   const {
@@ -21,13 +22,22 @@ const LoginScreen = ({ navigation }: Props) => {
     },
     mode: "onSubmit",
   });
+
+  const [serverError, setServerError] = useState("");
+
   const onSubmit = async (data: LoginSchema) => {
     try {
+      setServerError("");
       const requestBody = await loginRequest(data);
       console.log("Login went succesfully:", requestBody.token);
       navigation.navigate("Tabs", { screen: "ProfileCardScreen" });
     } catch (error: any) {
-      console.log("login error", error?.response?.data || error.message);
+      const message =
+        error?.response?.data?.message ||
+        error.message ||
+        "Email or Password is incorrect";
+      setServerError(message);
+      console.log("Login error", message);
     }
   };
   return (
@@ -76,7 +86,7 @@ const LoginScreen = ({ navigation }: Props) => {
                 onBlur={onBlur}
                 onChangeText={onChange}
                 value={value}
-                className={`h-12 rounded-2xl border border-slate-700 bg-slate-800 px-4 text-white ${errors.password ? "border-red-500" : "border-slate-700"}`}
+                className={`h-12 rounded-2xl border border-slate-700 bg-slate-800 px-4 text-white ${errors.email ? "border-red-500" : "border-slate-700"}`}
               />
             )}
           />
@@ -95,6 +105,22 @@ const LoginScreen = ({ navigation }: Props) => {
             >
               {isSubmitting ? "Loading..." : "Login"}
             </Text>
+          </Pressable>
+          <View className="flex justify-center items-center">
+            {serverError && (
+              <Text className="mt-4 text-sm font-semibold text-red-400">
+                {serverError}
+              </Text>
+            )}
+          </View>
+          <Pressable
+            className={`${serverError ? "mt-2" : "mt-4"} flex-row justify-center`}
+            onPress={() => navigation.navigate("RegisterScreen")}
+          >
+            <Text className="text-sm text-slate-300">
+              Don't have an account?
+            </Text>
+            <Text className="text-sm font-bold text-white"> Register here</Text>
           </Pressable>
         </View>
       </View>
