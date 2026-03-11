@@ -114,7 +114,7 @@ const LoginScreen = ({ navigation }: Props) => {
             )}
           </View>
           <Pressable
-            className={`${serverError ? "mt-2" : "mt-4"} flex-row justify-center`}
+            className={`${serverError ? "mt-2" : "mt-4"} h-10 flex-row justify-center items-center`}
             onPress={() => navigation.navigate("RegisterScreen")}
           >
             <Text className="text-sm text-slate-300">

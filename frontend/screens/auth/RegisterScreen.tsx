@@ -179,6 +179,15 @@ const RegisterScreen = ({ navigation }: Props) => {
                 {isSubmitting ? "Loading..." : "Submit"}
               </Text>
             </Pressable>
+            <Pressable
+              className="h-20 flex-row justify-center items-center"
+              onPress={() => navigation.navigate("LoginScreen")}
+            >
+              <Text className="text-sm text-slate-300">
+                Already have an account?
+              </Text>
+              <Text className="text-sm font-bold text-white"> Login here</Text>
+            </Pressable>
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
