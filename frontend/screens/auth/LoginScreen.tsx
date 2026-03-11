@@ -57,12 +57,26 @@ const LoginScreen = ({ navigation }: Props) => {
           <Text className="mt-4 mb-2 text-sm font-bold text-slate-200">
             Password
           </Text>
-          <TextInput
-            placeholder="Enter your password"
-            secureTextEntry
-            placeholderTextColor="#94a3b8"
-            className="h-12 rounded-2xl border border-slate-700 bg-slate-800 px-4 text-white"
+          <Controller
+            control={control}
+            name="password"
+            render={({ onBlur, onChange, value }) => (
+              <TextInput
+                placeholder="Enter your password"
+                secureTextEntry
+                placeholderTextColor="#94a3b8"
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+                className={`h-12 rounded-2xl border border-slate-700 bg-slate-800 px-4 text-white ${errors.password ? "border-red-500" : "border-slate-700"}`}
+              />
+            )}
           />
+          {errors.password && (
+            <Text className="mt-2 text-xs font-semibold text-red-400">
+              {errors.password.message}
+            </Text>
+          )}
           <Pressable className="mt-6 h-12 items-center justify-center rounded-2xl bg-white">
             <Text className="text-base font-extrabold text-slate-950">
               Login
