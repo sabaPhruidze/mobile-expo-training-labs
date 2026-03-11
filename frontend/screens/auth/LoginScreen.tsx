@@ -22,7 +22,13 @@ const LoginScreen = ({ navigation }: Props) => {
     mode: "onSubmit",
   });
   const onSubmit = async (data: LoginSchema) => {
-    console.log(data);
+    try {
+      const requestBody = await loginRequest(data);
+      console.log("Login went succesfully:", requestBody.token);
+      navigation.navigate("Tabs", { screen: "ProfileCardScreen" });
+    } catch (error: any) {
+      console.log("login error", error?.response?.data || error.message);
+    }
   };
   return (
     <SafeAreaView className="flex-1">
