@@ -33,13 +33,27 @@ const LoginScreen = ({ navigation }: Props) => {
           <Text className="mt-5 mb-2 text-sm font-bold text-slate-200">
             Email
           </Text>
-          <TextInput
-            placeholder="Ex: Denise1@gmail.com"
-            keyboardType="email-address"
-            placeholderTextColor="#94a3b8"
-            autoCapitalize="none"
-            className="h-12 rounded-2xl border border-slate-700 bg-slate-800 px-6 text-white"
+          <Controller
+            control={control}
+            name="email"
+            render={({ field: { onChange, onBlur, value } }) => (
+              <TextInput
+                placeholder="Ex: Denise1@gmail.com"
+                keyboardType="email-address"
+                placeholderTextColor="#94a3b8"
+                autoCapitalize="none"
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+                className={`h-12 rounded-2xl border border-slate-700 bg-slate-800 px-6 text-white ${errors.email ? "border-red-500" : "border-slate-700"}`}
+              />
+            )}
           />
+          {errors.email && (
+            <Text className="mt-2 text-xs font-semibold text-red-400">
+              {errors.email.message}
+            </Text>
+          )}
           <Text className="mt-4 mb-2 text-sm font-bold text-slate-200">
             Password
           </Text>
