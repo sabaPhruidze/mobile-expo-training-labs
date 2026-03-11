@@ -3,9 +3,25 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import React from "react";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import type { RootStackParamList } from "../../Main";
+import { Controller, useForm } from "react-hook-form";
+import { loginSchema, type LoginSchema } from "../../features/auth/schema";
 
 type Props = NativeStackScreenProps<RootStackParamList, "LoginScreen">;
 const LoginScreen = ({ navigation }: Props) => {
+  const {
+    control,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<LoginSchema>({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+    mode: "onSubmit",
+  });
+  const onSubmit = async (data: LoginSchema) => {
+    console.log(data);
+  };
   return (
     <SafeAreaView className="flex-1">
       <View className="p-4 flex-1">

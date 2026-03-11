@@ -13,3 +13,9 @@ export const registerSchema = z
   });
 
 export type RegisterSchema = z.infer<typeof registerSchema>;
+
+export const loginSchema = z.object({
+  email: z.email("Please enter a valid mail"),
+  password: z.string().min(6, "Password must be at least 6 symbol"),
+});
+export type LoginSchema = z.infer<typeof loginSchema>;
