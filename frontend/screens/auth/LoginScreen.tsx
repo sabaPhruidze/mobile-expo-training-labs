@@ -30,7 +30,7 @@ const LoginScreen = ({ navigation }: Props) => {
       setServerError("");
       const requestBody = await loginRequest(data);
       console.log("Login went succesfully:", requestBody.token);
-      navigation.navigate("Tabs", { screen: "ProfileCardScreen" });
+      navigation.replace("Tabs", { screen: "ProfileCardScreen" });
     } catch (error: any) {
       const message =
         error?.response?.data?.message ||
