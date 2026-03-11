@@ -60,7 +60,7 @@ const LoginScreen = ({ navigation }: Props) => {
           <Controller
             control={control}
             name="password"
-            render={({ onBlur, onChange, value }) => (
+            render={({ field: { onChange, onBlur, value } }) => (
               <TextInput
                 placeholder="Enter your password"
                 secureTextEntry
@@ -77,9 +77,15 @@ const LoginScreen = ({ navigation }: Props) => {
               {errors.password.message}
             </Text>
           )}
-          <Pressable className="mt-6 h-12 items-center justify-center rounded-2xl bg-white">
-            <Text className="text-base font-extrabold text-slate-950">
-              Login
+          <Pressable
+            className={`mt-6 h-12 items-center justify-center rounded-2xl ${isSubmitting ? "bg-slate-600" : "bg-white"}`}
+            disabled={isSubmitting}
+            onPress={handleSubmit(onSubmit)}
+          >
+            <Text
+              className={`text-base font-extrabold ${isSubmitting ? "text-slate-200" : "text-slate-950"}`}
+            >
+              {isSubmitting ? "Loading..." : "Login"}
             </Text>
           </Pressable>
         </View>
