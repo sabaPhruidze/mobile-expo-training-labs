@@ -5,7 +5,8 @@ import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import type { RootStackParamList } from "../../Main";
 import { Controller, useForm } from "react-hook-form";
 import { loginSchema, type LoginSchema } from "../../features/auth/schema";
-
+import { loginRequest } from "../../api/auth";
+import { zodResolver } from "@hookform/resolvers/zod";
 type Props = NativeStackScreenProps<RootStackParamList, "LoginScreen">;
 const LoginScreen = ({ navigation }: Props) => {
   const {
@@ -13,6 +14,7 @@ const LoginScreen = ({ navigation }: Props) => {
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<LoginSchema>({
+    resolver: zodResolver(loginSchema),
     defaultValues: {
       email: "",
       password: "",
