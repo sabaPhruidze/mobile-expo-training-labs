@@ -1,4 +1,7 @@
 import "./global.css";
+import React, { useEffect, useState } from "react";
+import { View, ActivityIndicator } from "react-native";
+import { getToken } from "./services/storage";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigatorScreenParams } from "@react-navigation/native";
@@ -66,12 +69,40 @@ const linking: LinkingOptions<RootStackParamList> = {
 };
 
 const Main = () => {
+  const [isSignedIn, setIsSignedIn] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // We receive token here and make sure it exists or not
+    const checkAuth = async () => {
+      try {
+        const token = await getToken();
+        if (token) {
+          setIsSignedIn(true);
+        } else {
+          setIsSignedIn(false);
+        }
+      } catch (error) {
+        console.log("auth check error:", error);
+        setIsSignedIn(false);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    checkAuth();
+  }, []);
+  if (isLoading) {
+    return (
+      <View className="fle-1 items-center justify-center bg-black">
+        <ActivityIndicator size="large" color="#fff" />
+      </View>
+    );
+  }
   return (
     <NavigationContainer linking={linking}>
       <StatusBar style="light" />
       {/* if I want to remove all headers I can add attribute on Stack.Navigator screenOptions={{headerShown:false}} */}
       <Stack.Navigator
-        initialRouteName="LoginScreen"
         screenOptions={{
           headerStyle: { backgroundColor: "#000" },
           headerTintColor: "#fff",
@@ -79,40 +110,47 @@ const Main = () => {
           contentStyle: { backgroundColor: "#000" }, // ეკრანების “base” background
         }}
       >
-        <Stack.Screen name="LoginScreen" component={LoginScreen} />
-        <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
-        <Stack.Screen
-          name="Tabs"
-          component={TabNavigator}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen name="Fourth" component={Fourth} />
-        <Stack.Screen name="Fifth" component={Fifth} />
-        <Stack.Screen name="Sixth" component={Sixth} />
-        <Stack.Screen name="Seventh" component={Seventh} />
-        <Stack.Screen name="Eight" component={Eight} />
-        <Stack.Screen name="Nine" component={Nine} />
-        <Stack.Screen
-          name="Ten"
-          component={Ten}
-          options={{ headerShown: false }} // I removed the header on ten in order to test how it works
-        />
-        <Stack.Screen
-          name="Eleven"
-          component={Eleven}
-          options={{
-            title: "11 test",
-            headerStyle: { backgroundColor: "green" }, //background color , which consists statusbar as well
-            headerTintColor: "white", //text color
-            statusBarStyle: "auto",
-          }}
-        />
-        <Stack.Screen name="Twelve" component={Twelve} />
-        <Stack.Screen name="Thirteen" component={Thirteen} />
-        <Stack.Screen name="Fourteen" component={Fourteen} />
-        <Stack.Screen name="Fifteen" component={Fifteen} />
-        <Stack.Screen name="Sixteen" component={Sixteen} />
-        <Stack.Screen name="SevenTeen" component={SevenTeen} />
+        {!isSignedIn ? (
+          <>
+            <Stack.Screen name="LoginScreen" component={LoginScreen} />
+            <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
+          </>
+        ) : (
+          <>
+            <Stack.Screen
+              name="Tabs"
+              component={TabNavigator}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen name="Fourth" component={Fourth} />
+            <Stack.Screen name="Fifth" component={Fifth} />
+            <Stack.Screen name="Sixth" component={Sixth} />
+            <Stack.Screen name="Seventh" component={Seventh} />
+            <Stack.Screen name="Eight" component={Eight} />
+            <Stack.Screen name="Nine" component={Nine} />
+            <Stack.Screen
+              name="Ten"
+              component={Ten}
+              options={{ headerShown: false }} // I removed the header on ten in order to test how it works
+            />
+            <Stack.Screen
+              name="Eleven"
+              component={Eleven}
+              options={{
+                title: "11 test",
+                headerStyle: { backgroundColor: "green" }, //background color , which consists statusbar as well
+                headerTintColor: "white", //text color
+                statusBarStyle: "auto",
+              }}
+            />
+            <Stack.Screen name="Twelve" component={Twelve} />
+            <Stack.Screen name="Thirteen" component={Thirteen} />
+            <Stack.Screen name="Fourteen" component={Fourteen} />
+            <Stack.Screen name="Fifteen" component={Fifteen} />
+            <Stack.Screen name="Sixteen" component={Sixteen} />
+            <Stack.Screen name="SevenTeen" component={SevenTeen} />
+          </>
+        )}
       </Stack.Navigator>
     </NavigationContainer>
   );
