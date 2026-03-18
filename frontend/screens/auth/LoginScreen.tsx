@@ -8,6 +8,7 @@ import { loginSchema, type LoginSchema } from "../../features/auth/schema";
 import { loginRequest } from "../../api/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
+import { saveToken } from "../../services/storage";
 type Props = NativeStackScreenProps<RootStackParamList, "LoginScreen">;
 const LoginScreen = ({ navigation }: Props) => {
   const {
@@ -29,6 +30,7 @@ const LoginScreen = ({ navigation }: Props) => {
     try {
       setServerError("");
       const requestBody = await loginRequest(data);
+      await saveToken(requestBody.token);
       console.log("Login went succesfully:", requestBody.token);
       navigation.replace("Tabs", { screen: "ProfileCardScreen" });
     } catch (error: any) {

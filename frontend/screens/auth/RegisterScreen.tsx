@@ -40,7 +40,7 @@ const RegisterScreen = ({ navigation }: Props) => {
       const requestBody = await registerRequest(data);
       console.log("register went succesfully:", requestBody.token);
       reset();
-      navigation.replace("Tabs", { screen: "ProfileCardScreen" });
+      navigation.replace("LoginScreen");
     } catch (error: any) {
       console.log("register error", error?.response?.data || error.message);
     }
