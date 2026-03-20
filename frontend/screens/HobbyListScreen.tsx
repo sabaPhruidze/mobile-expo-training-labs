@@ -73,7 +73,7 @@ const HobbyListScreen = ({ navigation }: Props) => {
         ItemSeparatorComponent={renderSeparator}
         ListEmptyComponent={renderEmpty}
         ListFooterComponent={renderFooter}
-        onEndReached={handleLoadMore}
+        onEndReached={handleLoadMore} //infinite load more
         onEndReachedThreshold={0.5}
         renderItem={({ item }) => (
           <View className="mb-3 w-1/2 px-1.5">

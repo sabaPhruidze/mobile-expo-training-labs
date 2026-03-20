@@ -50,9 +50,7 @@ Keyboard avoiding on forms
 2. Smart Bulb (State & Conditional UI): SafeAreaView, View, Text, Switch, Pressable, useState, StyleSheet, Platform.select (shadow/elevation), Conditional styles (toggle on/off), React Navigation (navigate)
 3. Secret Image (Modal & ImageBackground): I set a nature photo as an ImageBackground and placed a centered Pressable button labeled "See details". On press, I use useState to control showing/hiding a Modal. Inside the modal, I display the text "This is a secret information" and a close button (Pressable + Image exit icon) that hides the modal when pressed. I replaced StyleSheet styles with NativeWind (className).
    Secret Image (Modal & ImageBackground)
-
-Background image + “See details” opens Modal + close action
-
-Notes
+4. Hobby List (FlatList & Multi-Column Layout): I created a dark-themed hobbies screen using View, Text, FlatList, and ActivityIndicator. I used FlatList with keyExtractor, numColumns, columnWrapperStyle, ListHeaderComponent, ItemSeparatorComponent, ListEmptyComponent, ListFooterComponent, onEndReached, and onEndReachedThreshold. I also used useState to simulate loading more items when scrolling to the bottom. The screen was styled with NativeWind (className) instead of StyleSheet, and the hobby cards were displayed in a clean 2-column layout adapted to the dark visual style of the previous screens.
+5. Notes
 
 This repo is work-in-progress; labs will be expanded step-by-step.
