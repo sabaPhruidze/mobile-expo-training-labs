@@ -21,20 +21,12 @@ import { RootStackParamList } from "../Main";
 type Props = NativeStackScreenProps<RootStackParamList, "HobbyListScreen">;
 const HobbyListScreen = ({ navigation }: Props) => {
   return (
-    <View>
-      <FlatList
-        data={hobbiesData}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <View>
-            <Text>{item.title} </Text>
-          </View>
-        )}
-      />
-      <View>
-        <Pressable onPress={() => navigation.navigate("Fifth")}>
-          <Text>Move on next project</Text>
-        </Pressable>
+    <View className="flex-1 bg-slate-950 px-4 pt-6">
+      <View className="rounded-3xl border border-slate-800 bg-slate-900 p-5">
+        <Text className="text-2xl font-bold text-white">My hobbies</Text>
+        <Text className="mt-2 text-sm text-slate-400">
+          Hobbies screen placeholder
+        </Text>
       </View>
     </View>
   );
