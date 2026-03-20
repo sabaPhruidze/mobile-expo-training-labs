@@ -10,7 +10,7 @@ import { LinkingOptions } from "@react-navigation/native";
 import * as Linking from "expo-linking";
 import { StatusBar } from "expo-status-bar";
 
-import Fourth from "./components/Fourth";
+import HobbyListScreen from "./screens/HobbyListScreen";
 import Fifth from "./components/Fifth";
 import Sixth from "./components/Sixth";
 import Seventh from "./components/Seventh";
@@ -30,7 +30,7 @@ import LoginScreen from "./screens/auth/LoginScreen";
 
 export type RootStackParamList = {
   Tabs: NavigatorScreenParams<TabParamList>;
-  Fourth: undefined;
+  HobbyListScreen: undefined;
   Fifth: undefined;
   Sixth: undefined;
   Seventh: undefined;
@@ -122,7 +122,7 @@ const Main = () => {
               component={TabNavigator}
               options={{ headerShown: false }}
             />
-            <Stack.Screen name="Fourth" component={Fourth} />
+            <Stack.Screen name="HobbyListScreen" component={HobbyListScreen} />
             <Stack.Screen name="Fifth" component={Fifth} />
             <Stack.Screen name="Sixth" component={Sixth} />
             <Stack.Screen name="Seventh" component={Seventh} />

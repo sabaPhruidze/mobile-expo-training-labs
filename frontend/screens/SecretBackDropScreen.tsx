@@ -46,7 +46,7 @@ const SecretBackDropScreen = ({ navigation }: Props) => {
           </Pressable>
           {/* navigation action */}
           <Pressable
-            onPress={() => navigation.navigate("Fourth")}
+            onPress={() => navigation.navigate("HobbyListScreen")}
             className="mt-3 w-full h-12 rounded-2xl border border-white/30 bg-white/10 items-center justify-center"
           >
             <Text className="text-white text-base font-semibold">
