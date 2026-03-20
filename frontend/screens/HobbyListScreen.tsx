@@ -1,20 +1,6 @@
 import { View, Text, FlatList, StyleSheet, Pressable } from "react-native";
 import React from "react";
-export const hobbiesData = [
-  { id: 1, title: "Programming" },
-  { id: 2, title: "Working out" },
-  { id: 3, title: "Reading books" },
-  { id: 4, title: "Photography" },
-  { id: 5, title: "Traveling" },
-  { id: 6, title: "Listening to music" },
-  { id: 7, title: "Drawing" },
-  { id: 8, title: "Cooking" },
-  { id: 9, title: "Learning languages" },
-  { id: 10, title: "Chess" },
-  { id: 11, title: "Watching movies" },
-  { id: 12, title: "Gaming" },
-  { id: 13, title: "reading" },
-] as const;
+export const hobbiesData = [] as const;
 
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../Main";
@@ -29,6 +15,14 @@ const HobbyListScreen = ({ navigation }: Props) => {
       </Text>
     </View>
   );
+  const renderEmpty = () => (
+    <View className="items-center justify-center py-10">
+      <Text className="text-sm text-slate-400">
+        The list is currently empty
+      </Text>
+    </View>
+  );
+  const renderSeparator = () => <View className="h-2" />;
   return (
     <View className="flex-1 bg-slate-950 px-4 pt-6">
       <FlatList
@@ -37,9 +31,12 @@ const HobbyListScreen = ({ navigation }: Props) => {
         className="mb-20"
         key="2-columns"
         numColumns={2}
+        columnWrapperStyle={{ paddingHorizontal: 1 }}
         ListHeaderComponent={renderHeader}
+        ItemSeparatorComponent={renderSeparator}
+        ListEmptyComponent={renderEmpty}
         renderItem={({ item }) => (
-          <View className="mb-3 rounded-2xl border-slate-800 bg-slate-900 p-4">
+          <View className="rounded-2xl border-slate-800 bg-slate-900 p-4 mr-2">
             <Text className="text-base font-medium text-white">
               {item.title}
             </Text>
