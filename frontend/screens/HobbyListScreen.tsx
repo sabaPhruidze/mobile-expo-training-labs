@@ -35,6 +35,8 @@ const HobbyListScreen = ({ navigation }: Props) => {
         data={hobbiesData}
         keyExtractor={(item) => item.id.toString()}
         className="mb-20"
+        key="2-columns"
+        numColumns={2}
         ListHeaderComponent={renderHeader}
         renderItem={({ item }) => (
           <View className="mb-3 rounded-2xl border-slate-800 bg-slate-900 p-4">
