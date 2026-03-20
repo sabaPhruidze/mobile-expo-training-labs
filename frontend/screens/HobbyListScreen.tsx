@@ -21,12 +21,21 @@ import { RootStackParamList } from "../Main";
 
 type Props = NativeStackScreenProps<RootStackParamList, "HobbyListScreen">;
 const HobbyListScreen = ({ navigation }: Props) => {
+  const renderHeader = () => (
+    <View className="mb-4">
+      <Text className="text-2xl font-bold text-white">My Hobbies</Text>
+      <Text className="mt-2 text-sm text-slate-400">
+        Things people enjoy in daily life
+      </Text>
+    </View>
+  );
   return (
     <View className="flex-1 bg-slate-950 px-4 pt-6">
       <FlatList
         data={hobbiesData}
         keyExtractor={(item) => item.id.toString()}
         className="mb-20"
+        ListHeaderComponent={renderHeader}
         renderItem={({ item }) => (
           <View className="mb-3 rounded-2xl border-slate-800 bg-slate-900 p-4">
             <Text className="text-base font-medium text-white">
