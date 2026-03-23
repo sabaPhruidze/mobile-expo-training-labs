@@ -94,7 +94,7 @@ const HobbyListScreen = ({ navigation }: Props) => {
       </View>
       <View className="pb-4 pt-3">
         <Pressable
-          onPress={() => navigation.navigate("Fifth")}
+          onPress={() => navigation.navigate("RestaurantMenuScreen")}
           className="mt-3 w-full h-12 rounded-2xl border border-white/30 bg-white/10 items-center justify-center"
         >
           <Text className="text-white text-base font-semibold">

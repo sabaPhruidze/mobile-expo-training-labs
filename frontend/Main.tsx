@@ -11,6 +11,8 @@ import * as Linking from "expo-linking";
 import { StatusBar } from "expo-status-bar";
 
 import HobbyListScreen from "./screens/HobbyListScreen";
+import RestaurantMenuScreen from "./screens/RestaurantMenuScreen";
+
 import Fifth from "./components/Fifth";
 import Sixth from "./components/Sixth";
 import Seventh from "./components/Seventh";
@@ -31,7 +33,7 @@ import LoginScreen from "./screens/auth/LoginScreen";
 export type RootStackParamList = {
   Tabs: NavigatorScreenParams<TabParamList>;
   HobbyListScreen: undefined;
-  Fifth: undefined;
+  RestaurantMenuScreen: undefined;
   Sixth: undefined;
   Seventh: undefined;
   Eight: undefined;
@@ -53,10 +55,10 @@ const linking: LinkingOptions<RootStackParamList> = {
   prefixes: [Linking.createURL("/")],
   config: {
     screens: {
-      Fifth: "fifth",
-      Sixteen: "user/:id",
       RegisterScreen: "register",
       LoginScreen: "login",
+      RestaurantMenuScreen: "restaurant-menu",
+      Sixteen: "user/:id",
       Tabs: {
         screens: {
           ProfileCardScreen: "profile-card",
@@ -123,7 +125,10 @@ const Main = () => {
               options={{ headerShown: false }}
             />
             <Stack.Screen name="HobbyListScreen" component={HobbyListScreen} />
-            <Stack.Screen name="Fifth" component={Fifth} />
+            <Stack.Screen
+              name="RestaurantMenuScreen"
+              component={RestaurantMenuScreen}
+            />
             <Stack.Screen name="Sixth" component={Sixth} />
             <Stack.Screen name="Seventh" component={Seventh} />
             <Stack.Screen name="Eight" component={Eight} />
