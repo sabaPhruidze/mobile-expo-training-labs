@@ -13,7 +13,6 @@ import { StatusBar } from "expo-status-bar";
 import HobbyListScreen from "./screens/HobbyListScreen";
 import RestaurantMenuScreen from "./screens/RestaurantMenuScreen";
 
-import Fifth from "./components/Fifth";
 import Sixth from "./components/Sixth";
 import Seventh from "./components/Seventh";
 import Eight from "./components/Eight";
