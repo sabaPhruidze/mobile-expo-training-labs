@@ -6,21 +6,7 @@ import {
   Pressable,
 } from "react-native";
 import React, { useState } from "react";
-export const hobbiesData: { id: number; title: string }[] = [
-  { id: 1, title: "Programming" },
-  { id: 2, title: "Working out" },
-  { id: 3, title: "Reading books" },
-  { id: 4, title: "Photography" },
-  { id: 5, title: "Traveling" },
-  { id: 6, title: "Listening to music" },
-  { id: 7, title: "Drawing" },
-  { id: 8, title: "Cooking" },
-  { id: 9, title: "Learning languages" },
-  { id: 10, title: "Chess" },
-  { id: 11, title: "Watching movies" },
-  { id: 12, title: "Gaming" },
-  { id: 13, title: "reading" },
-];
+import { hobbiesData } from "../constants/hobbiesData";
 
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../Main";
