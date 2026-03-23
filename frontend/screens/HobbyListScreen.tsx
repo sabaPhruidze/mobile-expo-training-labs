@@ -1,4 +1,10 @@
-import { View, Text, FlatList, ActivityIndicator } from "react-native";
+import {
+  View,
+  Text,
+  FlatList,
+  ActivityIndicator,
+  Pressable,
+} from "react-native";
 import React, { useState } from "react";
 export const hobbiesData: { id: number; title: string }[] = [
   { id: 1, title: "Programming" },
@@ -62,29 +68,40 @@ const HobbyListScreen = ({ navigation }: Props) => {
   const renderSeparator = () => <View className="h-2" />;
   return (
     <View className="flex-1 bg-slate-950 px-4 pt-6">
-      <FlatList
-        key="2-columns"
-        data={data}
-        keyExtractor={(item) => item.id.toString()}
-        ListHeaderComponent={renderHeader}
-        numColumns={2}
-        className="mb-20"
-        columnWrapperStyle={{ paddingHorizontal: 2 }}
-        ItemSeparatorComponent={renderSeparator}
-        ListEmptyComponent={renderEmpty}
-        ListFooterComponent={renderFooter}
-        onEndReached={handleLoadMore} //infinite load more
-        onEndReachedThreshold={0.5}
-        renderItem={({ item }) => (
-          <View className="mb-3 w-1/2 px-1.5">
-            <View className="rounded-2xl border border-slate-800 bg-slate-900 p-4">
-              <Text className="text-base font-medium text-white">
-                {item.title}
-              </Text>
+      <View className="h-[360px]">
+        <FlatList
+          key="2-columns"
+          data={data}
+          keyExtractor={(item) => item.id.toString()}
+          ListHeaderComponent={renderHeader}
+          numColumns={2}
+          columnWrapperStyle={{ paddingHorizontal: 2 }}
+          ItemSeparatorComponent={renderSeparator}
+          ListEmptyComponent={renderEmpty}
+          ListFooterComponent={renderFooter}
+          onEndReached={handleLoadMore} //infinite load more
+          onEndReachedThreshold={0.5}
+          renderItem={({ item }) => (
+            <View className="mb-3 w-1/2 px-1.5">
+              <View className="rounded-2xl border border-slate-800 bg-slate-900 p-4">
+                <Text className="text-base font-medium text-white">
+                  {item.title}
+                </Text>
+              </View>
             </View>
-          </View>
-        )}
-      />
+          )}
+        />
+      </View>
+      <View className="pb-4 pt-3">
+        <Pressable
+          onPress={() => navigation.navigate("Fifth")}
+          className="mt-3 w-full h-12 rounded-2xl border border-white/30 bg-white/10 items-center justify-center"
+        >
+          <Text className="text-white text-base font-semibold">
+            Next Project
+          </Text>
+        </Pressable>
+      </View>
     </View>
   );
 };
