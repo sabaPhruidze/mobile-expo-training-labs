@@ -11,7 +11,7 @@ export const galleryImages: GalleryImage[] = [
   {
     id: "2",
     imageUrl:
-      "https://www.shutterstock.com/image-photo/beauty-charisma-head-shot-portrait-600nw-2647728057.jpg",
+      "https://i.pinimg.com/564x/02/11/c8/0211c8d1671140d0b5a867210326f415.jpg",
   },
   {
     id: "3",
@@ -21,7 +21,7 @@ export const galleryImages: GalleryImage[] = [
   {
     id: "4",
     imageUrl:
-      "https://media.istockphoto.com/id/1682296067/photo/happy-studio-portrait-or-professional-man-real-estate-agent-or-asian-businessman-smile-for.jpg?s=612x612&w=0&k=20&c=9zbG2-9fl741fbTWw5fNgcEEe4ll-JegrGlQQ6m54rg=",
+      "https://img.freepik.com/free-photo/horizontal-portrait-smiling-happy-young-pleasant-looking-female-wears-denim-shirt-stylish-glasses-with-straight-blonde-hair-expresses-positiveness-poses_176420-13176.jpg?semt=ais_hybrid&w=740&q=80",
   },
   {
     id: "5",
