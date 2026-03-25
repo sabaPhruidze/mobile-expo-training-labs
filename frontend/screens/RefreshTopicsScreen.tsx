@@ -50,7 +50,7 @@ const RefreshTopicsScreen = ({ navigation }: Props) => {
         Test refresh
       </Text>
       <Pressable
-        onPress={() => navigation.navigate("Seventh")}
+        onPress={() => navigation.navigate("ImageGalleryScreen")}
         className="mt-4 h-14 items-center justify-center rounded-2xl bg-[#FACC15]"
       >
         <Text className="text-base font-bold text-[#0B1220] px-4">

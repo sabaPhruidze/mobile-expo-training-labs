@@ -13,7 +13,8 @@ import { StatusBar } from "expo-status-bar";
 import HobbyListScreen from "./screens/HobbyListScreen";
 import RestaurantMenuScreen from "./screens/RestaurantMenuScreen";
 import RefreshTopicsScreen from "./screens/RefreshTopicsScreen";
-import Seventh from "./components/Seventh";
+import ImageGalleryScreen from "./screens/ImageGalleryScreen";
+
 import Eight from "./components/Eight";
 import Nine from "./components/Nine";
 import Ten from "./components/Ten";
@@ -33,8 +34,7 @@ export type RootStackParamList = {
   HobbyListScreen: undefined;
   RestaurantMenuScreen: undefined;
   RefreshTopicsScreen: undefined;
-  Sixth: undefined;
-  Seventh: undefined;
+  ImageGalleryScreen: undefined;
   Eight: undefined;
   Nine: undefined;
   Ten: undefined;
@@ -58,6 +58,7 @@ const linking: LinkingOptions<RootStackParamList> = {
       LoginScreen: "login",
       RestaurantMenuScreen: "restaurant-menu",
       RefreshTopicsScreen: "refresh-topic",
+      ImageGalleryScreen: "image-gallery",
       Sixteen: "user/:id",
       Tabs: {
         screens: {
@@ -133,7 +134,10 @@ const Main = () => {
               name="RefreshTopicsScreen"
               component={RefreshTopicsScreen}
             />
-            <Stack.Screen name="Seventh" component={Seventh} />
+            <Stack.Screen
+              name="ImageGalleryScreen"
+              component={ImageGalleryScreen}
+            />
             <Stack.Screen name="Eight" component={Eight} />
             <Stack.Screen name="Nine" component={Nine} />
             <Stack.Screen
