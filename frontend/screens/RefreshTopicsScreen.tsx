@@ -1,4 +1,4 @@
-import { View, Text, FlatList } from "react-native";
+import { View, Text, FlatList, RefreshControl, Pressable } from "react-native";
 import React, { useState } from "react";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../Main";
@@ -19,7 +19,7 @@ const RefreshTopicsScreen = ({ navigation }: Props) => {
         Refresh Topics
       </Text>
       <Text className="mt-2 text-center text-slate-300">
-        Pull down to refresh the list
+        Pull down inside the list to refresh the list
       </Text>
       <View className="mt-6 h-[52%] rounded-3xl border border-white/10 bg-slate-900 px-4 py-4 ">
         <FlatList
@@ -30,6 +30,14 @@ const RefreshTopicsScreen = ({ navigation }: Props) => {
               <Text className="text-base font-medium text-white">{item}</Text>
             </View>
           )}
+          refreshControl={
+            <RefreshControl
+              refreshing={refreshing}
+              onRefresh={handleRefresh}
+              colors={["#eab308"]}
+              tintColor="#eab308"
+            />
+          }
         />
       </View>
       <Text className="mt-4 text-center font-semibold text-yellow-500">
@@ -41,6 +49,14 @@ const RefreshTopicsScreen = ({ navigation }: Props) => {
       >
         Test refresh
       </Text>
+      <Pressable
+        onPress={() => navigation.navigate("Seventh")}
+        className="mt-4 h-14 items-center justify-center rounded-2xl bg-[#FACC15]"
+      >
+        <Text className="text-base font-bold text-[#0B1220] px-4">
+          Move to next Project
+        </Text>
+      </Pressable>
     </View>
   );
 };
