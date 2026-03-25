@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View, Text, FlatList } from "react-native";
 import React, { useState } from "react";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../Main";
@@ -14,16 +14,24 @@ const RefreshTopicsScreen = ({ navigation }: Props) => {
     }, 2000);
   };
   return (
-    <View className="flex-1 bg-slate-950 px-4 pt-6">
+    <View className="h-screen bg-slate-950 px-4 pt-6">
       <Text className="text-center text-2xl font-bold text-white">
         Refresh Topics
       </Text>
       <Text className="mt-2 text-center text-slate-300">
         Pull down to refresh the list
       </Text>
-      <Text className="mt-6 text-center text-slate-400">
-        Total Topics:{refreshTopicsData.length}
-      </Text>
+      <View className="mt-6 h-[52%] rounded-3xl border border-white/10 bg-slate-900 px-4 py-4 ">
+        <FlatList
+          data={refreshTopicsData}
+          keyExtractor={(item) => item}
+          renderItem={({ item }) => (
+            <View className="mb-3 rounded-2xl bg-slate-800 px-4 py-4">
+              <Text className="text-base font-medium text-white">{item}</Text>
+            </View>
+          )}
+        />
+      </View>
       <Text className="mt-4 text-center font-semibold text-yellow-500">
         Refreshing: {refreshing ? "Yes" : "No"}
       </Text>

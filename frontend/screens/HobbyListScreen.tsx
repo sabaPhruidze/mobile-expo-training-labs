@@ -54,7 +54,7 @@ const HobbyListScreen = ({ navigation }: Props) => {
   const renderSeparator = () => <View className="h-2" />;
   return (
     <View className="flex-1 bg-slate-950 px-4 pt-6">
-      <View className="h-[360px]">
+      <View className="h-[360vh]">
         <FlatList
           key="2-columns"
           data={data}
